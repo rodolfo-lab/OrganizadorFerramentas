@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FF00639B</color>
     <color name="primary_variant">#FF004A77</color>
+    <color name="divider">#FFCCCCCC</color>
+    <color name="disponivel">#FF2E7D32</color>
+    <color name="indisponivel">#FFC62828</color>
 </resources>

@@ -34,4 +34,15 @@
     <string name="erro_codigo">Informe o código da ferramenta.</string>
     <string name="erro_localizacao">Informe a localização da ferramenta.</string>
     <string name="erro_estado">Selecione o estado de conservação.</string>
+
+    <string name="titulo_lista">Acervo de Ferramentas</string>
+    <string name="item_codigo_categoria">Código: %1$s • Categoria: %2$s</string>
+    <string name="item_localizacao">Localização: %1$s</string>
+    <string name="item_estado">Estado: %1$s</string>
+    <string name="item_disponivel">DISPONÍVEL</string>
+    <string name="item_indisponivel">EMPRESTADA</string>
+
+    <string name="item_clicado">%1$s – %2$s\n%3$s • %4$s • %5$s</string>
+    <string name="status_disponivel">disponível</string>
+    <string name="status_emprestada">emprestada</string>
 </resources>
