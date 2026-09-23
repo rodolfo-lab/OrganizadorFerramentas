@@ -13,6 +13,7 @@
     <string name="localizacao_dica">Ex.: Prateleira B3</string>
 
     <string name="categoria">Categoria</string>
+    <string name="categoria_selecione">Selecione…</string>
 
     <string name="estado">Estado de conservação</string>
     <string name="estado_nova">Nova</string>
@@ -28,11 +29,11 @@
     <string name="formulario_limpo">Formulário limpo.</string>
     <string name="disponivel_sim">sim</string>
     <string name="disponivel_nao">não</string>
-    <string name="ferramenta_salva">Ferramenta salva!\n\nNome: %1$s\nCódigo: %2$s\nLocalização: %3$s\nCategoria: %4$s\nEstado: %5$s\nDisponível: %6$s</string>
 
     <string name="erro_nome">Informe o nome da ferramenta.</string>
     <string name="erro_codigo">Informe o código da ferramenta.</string>
     <string name="erro_localizacao">Informe a localização da ferramenta.</string>
+    <string name="erro_categoria">Selecione a categoria da ferramenta.</string>
     <string name="erro_estado">Selecione o estado de conservação.</string>
 
     <string name="titulo_lista">Acervo de Ferramentas</string>
@@ -45,4 +46,26 @@
     <string name="item_clicado">%1$s – %2$s\n%3$s • %4$s • %5$s</string>
     <string name="status_disponivel">disponível</string>
     <string name="status_emprestada">emprestada</string>
+
+    <string name="adicionar">Adicionar</string>
+    <string name="sobre">Sobre</string>
+    <string name="lista_vazia">Nenhuma ferramenta cadastrada.\n\nToque em “Adicionar” para cadastrar a primeira ferramenta do acervo.</string>
+    <string name="ferramenta_adicionada">Ferramenta “%1$s” adicionada ao acervo.</string>
+    <string name="cadastro_cancelado">Cadastro cancelado.</string>
+
+    <string name="titulo_sobre">Sobre o Aplicativo</string>
+    <string name="sobre_logo_descricao">Logotipo da UTFPR</string>
+    <string name="sobre_universidade">Universidade Tecnológica Federal do Paraná</string>
+    <string name="sobre_autoria">Autoria</string>
+    <string name="sobre_rotulo_aluno">Aluno:</string>
+
+    <string name="sobre_aluno">Rodolfo Ricardo</string>
+    <string name="sobre_rotulo_curso">Curso:</string>
+    <string name="sobre_curso">CETEJ</string>
+    <string name="sobre_rotulo_email">E-mail:</string>
+
+    <string name="sobre_email">rodolfo.ricardo@alunos.utfpr.edu.br</string>
+    <string name="sobre_titulo_app">O que o aplicativo faz</string>
+    <string name="sobre_descricao">O Organizador de Ferramentas é um aplicativo para controle do acervo de ferramentas de uma oficina. Por meio dele é possível cadastrar uma ferramenta informando nome, código/nº de série, localização, categoria e estado de conservação, além de indicar se ela está disponível para empréstimo. As ferramentas cadastradas são apresentadas em uma lista, na qual um toque em um item exibe o resumo dos seus dados.</string>
+    <string name="sobre_versao">Versão 1.0 – Entrega 3</string>
 </resources>

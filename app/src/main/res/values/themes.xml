@@ -1,9 +1,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.OrganizadorFerramentas" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Base.Theme.OrganizadorFerramentas" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/primary_variant</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Theme.OrganizadorFerramentas" parent="Base.Theme.OrganizadorFerramentas" />
+    <style name="Theme.OrganizadorFerramentas" parent="Base.Theme.OrganizadorFerramentas">
+        <item name="actionBarStyle">@style/Widget.OrganizadorFerramentas.ActionBar</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="Widget.OrganizadorFerramentas.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@color/primary_variant</item>
+        <item name="titleTextStyle">@style/TextAppearance.OrganizadorFerramentas.ActionBar.Title</item>
+    </style>
+
+    <style name="TextAppearance.OrganizadorFerramentas.ActionBar.Title"
+        parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EstiloRotulo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EstiloTituloSecao">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primary_variant</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

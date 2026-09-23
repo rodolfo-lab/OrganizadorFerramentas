@@ -1,6 +1,7 @@
 <resources>
+
     <string-array name="categorias_ferramentas">
-        <item>Selecione…</item>
+        <item>@string/categoria_selecione</item>
         <item>Manual</item>
         <item>Elétrica</item>
         <item>Medição</item>
@@ -8,95 +9,5 @@
         <item>Jardinagem</item>
         <item>Segurança</item>
         <item>Outra</item>
-    </string-array>
-
-    <string-array name="ferramentas_nomes">
-        <item>Furadeira de Impacto</item>
-        <item>Parafusadeira sem Fio</item>
-        <item>Serra Circular</item>
-        <item>Martelo de Unha</item>
-        <item>Jogo de Chaves de Fenda</item>
-        <item>Trena a Laser</item>
-        <item>Paquímetro Digital</item>
-        <item>Esmerilhadeira Angular</item>
-        <item>Roçadeira a Gasolina</item>
-        <item>Tesoura de Poda</item>
-        <item>Capacete de Segurança</item>
-        <item>Luva de Raspa</item>
-    </string-array>
-
-    <string-array name="ferramentas_codigos">
-        <item>FER-0001</item>
-        <item>FER-0002</item>
-        <item>FER-0003</item>
-        <item>FER-0004</item>
-        <item>FER-0005</item>
-        <item>FER-0006</item>
-        <item>FER-0007</item>
-        <item>FER-0008</item>
-        <item>FER-0009</item>
-        <item>FER-0010</item>
-        <item>FER-0011</item>
-        <item>FER-0012</item>
-    </string-array>
-
-    <string-array name="ferramentas_categorias">
-        <item>Elétrica</item>
-        <item>Elétrica</item>
-        <item>Corte</item>
-        <item>Manual</item>
-        <item>Manual</item>
-        <item>Medição</item>
-        <item>Medição</item>
-        <item>Corte</item>
-        <item>Jardinagem</item>
-        <item>Jardinagem</item>
-        <item>Segurança</item>
-        <item>Segurança</item>
-    </string-array>
-
-    <string-array name="ferramentas_localizacoes">
-        <item>Prateleira A1</item>
-        <item>Prateleira A2</item>
-        <item>Bancada B1</item>
-        <item>Gaveta C1</item>
-        <item>Gaveta C2</item>
-        <item>Armário D1</item>
-        <item>Armário D2</item>
-        <item>Bancada B2</item>
-        <item>Galpão E1</item>
-        <item>Galpão E2</item>
-        <item>Prateleira F1</item>
-        <item>Prateleira F2</item>
-    </string-array>
-
-    <string-array name="ferramentas_estados">
-        <item>Nova</item>
-        <item>Usada – em bom estado</item>
-        <item>Usada – em bom estado</item>
-        <item>Nova</item>
-        <item>Usada – em bom estado</item>
-        <item>Nova</item>
-        <item>Usada – precisa de reparo</item>
-        <item>Usada – em bom estado</item>
-        <item>Usada – precisa de reparo</item>
-        <item>Nova</item>
-        <item>Nova</item>
-        <item>Danificada</item>
-    </string-array>
-
-    <string-array name="ferramentas_disponibilidade">
-        <item>sim</item>
-        <item>sim</item>
-        <item>não</item>
-        <item>sim</item>
-        <item>sim</item>
-        <item>sim</item>
-        <item>não</item>
-        <item>sim</item>
-        <item>não</item>
-        <item>sim</item>
-        <item>sim</item>
-        <item>não</item>
     </string-array>
 </resources>

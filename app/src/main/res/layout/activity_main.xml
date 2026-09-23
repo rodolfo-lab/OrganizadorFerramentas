@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/telaCadastro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -11,22 +12,10 @@
         android:padding="24dp">
 
         <TextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/titulo"
-            android:textColor="@color/primary_variant"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/tvLabelNome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/nome"
-            android:textStyle="bold" />
+            style="@style/EstiloRotulo"
+            android:layout_marginTop="0dp"
+            android:text="@string/nome" />
 
         <EditText
             android:id="@+id/textNome"
@@ -39,11 +28,8 @@
 
         <TextView
             android:id="@+id/tvLabelCodigo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/codigo"
-            android:textStyle="bold" />
+            style="@style/EstiloRotulo"
+            android:text="@string/codigo" />
 
         <EditText
             android:id="@+id/textCodigo"
@@ -56,11 +42,8 @@
 
         <TextView
             android:id="@+id/tvLabelLocalizacao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/localizacao"
-            android:textStyle="bold" />
+            style="@style/EstiloRotulo"
+            android:text="@string/localizacao" />
 
         <EditText
             android:id="@+id/textLocalizacao"
@@ -73,11 +56,8 @@
 
         <TextView
             android:id="@+id/tvLabelCategoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/categoria"
-            android:textStyle="bold" />
+            style="@style/EstiloRotulo"
+            android:text="@string/categoria" />
 
         <Spinner
             android:id="@+id/categoria"
@@ -87,11 +67,8 @@
 
         <TextView
             android:id="@+id/tvLabelEstado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/estado"
-            android:textStyle="bold" />
+            style="@style/EstiloRotulo"
+            android:text="@string/estado" />
 
         <RadioGroup
             android:id="@+id/estado"

@@ -1,32 +1,56 @@
 package com.example.organizadorferramentas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class ListaFerramentasActivity extends AppCompatActivity {
+public class ListaFerramentasActivity extends BaseActivity {
+
+    private static final int REQUEST_CADASTRO = 1;
 
     private ArrayList<Ferramenta> ferramentas;
     private ListView listaFerramentas;
     private FerramentaAdapter adapter;
+    private Button btnAdicionar;
+    private Button btnSobre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ferramentas);
 
-        ferramentas = carregarFerramentas();
-
+        ferramentas = new ArrayList<>();
         adapter = new FerramentaAdapter(this, ferramentas);
 
         listaFerramentas = findViewById(R.id.listaFerramentas);
         listaFerramentas.setAdapter(adapter);
+        listaFerramentas.setEmptyView(findViewById(R.id.tvListaVazia));
+
+        btnAdicionar = findViewById(R.id.btnAdicionar);
+        btnSobre = findViewById(R.id.btnSobre);
+
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListaFerramentasActivity.this, MainActivity.class);
+                startActivityForResult(intent, REQUEST_CADASTRO);
+            }
+        });
+
+        btnSobre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListaFerramentasActivity.this, SobreActivity.class));
+            }
+        });
 
         listaFerramentas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -49,29 +73,32 @@ public class ListaFerramentasActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<Ferramenta> carregarFerramentas() {
-        String[] nomes = getResources().getStringArray(R.array.ferramentas_nomes);
-        String[] codigos = getResources().getStringArray(R.array.ferramentas_codigos);
-        String[] categorias = getResources().getStringArray(R.array.ferramentas_categorias);
-        String[] localizacoes = getResources().getStringArray(R.array.ferramentas_localizacoes);
-        String[] estados = getResources().getStringArray(R.array.ferramentas_estados);
-        String[] disponibilidades = getResources().getStringArray(R.array.ferramentas_disponibilidade);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        ArrayList<Ferramenta> lista = new ArrayList<>();
-
-        for (int i = 0; i < nomes.length; i++) {
-            boolean disponivel = getString(R.string.disponivel_sim)
-                    .equalsIgnoreCase(disponibilidades[i]);
-
-            lista.add(new Ferramenta(
-                    nomes[i],
-                    codigos[i],
-                    categorias[i],
-                    localizacoes[i],
-                    estados[i],
-                    disponivel));
+        if (requestCode != REQUEST_CADASTRO) {
+            return;
         }
 
-        return lista;
+        if (resultCode != RESULT_OK || data == null) {
+            Toast.makeText(this, R.string.cadastro_cancelado, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Ferramenta ferramenta = new Ferramenta(
+                data.getStringExtra(MainActivity.EXTRA_NOME),
+                data.getStringExtra(MainActivity.EXTRA_CODIGO),
+                data.getStringExtra(MainActivity.EXTRA_CATEGORIA),
+                data.getStringExtra(MainActivity.EXTRA_LOCALIZACAO),
+                data.getStringExtra(MainActivity.EXTRA_ESTADO),
+                data.getBooleanExtra(MainActivity.EXTRA_DISPONIVEL, false));
+
+        ferramentas.add(ferramenta);
+        adapter.notifyDataSetChanged();
+
+        Toast.makeText(this,
+                getString(R.string.ferramenta_adicionada, ferramenta.getNome()),
+                Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,8 +1,5 @@
 package com.example.organizadorferramentas;
 
-/**
- * Entidade que representa uma ferramenta do acervo da oficina.
- */
 public class Ferramenta {
 
     private String nome;
