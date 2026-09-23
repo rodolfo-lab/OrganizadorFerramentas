@@ -1,0 +1,33 @@
+*.iml
+.gradle
+/local.properties
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+
+# Configuracao do Android Studio (por desenvolvedor)
+.idea/
+
+# Saidas de build de outros modulos e do menu Build > Generate APK
+build/
+/app/release/
+*.apk
+*.aab
+*.ap_
+*.hprof
+
+# Assinatura e segredos - nunca versionar
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+key.properties
+
+# Kotlin 2.x
+.kotlin/
+
+# Lixo do Windows
+Thumbs.db
+desktop.ini
+*.log

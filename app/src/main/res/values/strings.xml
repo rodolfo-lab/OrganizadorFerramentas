@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">OrganizadorFerramentas</string>
+
+    <string name="titulo">Cadastro de Ferramenta</string>
+
+    <string name="nome">Nome da ferramenta</string>
+    <string name="nome_dica">Ex.: Furadeira de impacto</string>
+
+    <string name="codigo">Código / nº de série</string>
+    <string name="codigo_dica">Ex.: FER-0042</string>
+
+    <string name="localizacao">Localização</string>
+    <string name="localizacao_dica">Ex.: Prateleira B3</string>
+
+    <string name="categoria">Categoria</string>
+
+    <string name="estado">Estado de conservação</string>
+    <string name="estado_nova">Nova</string>
+    <string name="estado_usada_boa">Usada – em bom estado</string>
+    <string name="estado_usada_reparo">Usada – precisa de reparo</string>
+    <string name="estado_danificada">Danificada</string>
+
+    <string name="disponivel">Disponível para empréstimo</string>
+
+    <string name="limpar">Limpar</string>
+    <string name="salvar">Salvar</string>
+
+    <string name="formulario_limpo">Formulário limpo.</string>
+    <string name="disponivel_sim">sim</string>
+    <string name="disponivel_nao">não</string>
+    <string name="ferramenta_salva">Ferramenta salva!\n\nNome: %1$s\nCódigo: %2$s\nLocalização: %3$s\nCategoria: %4$s\nEstado: %5$s\nDisponível: %6$s</string>
+
+    <string name="erro_nome">Informe o nome da ferramenta.</string>
+    <string name="erro_codigo">Informe o código da ferramenta.</string>
+    <string name="erro_localizacao">Informe a localização da ferramenta.</string>
+    <string name="erro_estado">Selecione o estado de conservação.</string>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string-array name="categorias_ferramentas">
+        <item>Selecione…</item>
+        <item>Manual</item>
+        <item>Elétrica</item>
+        <item>Medição</item>
+        <item>Corte</item>
+        <item>Jardinagem</item>
+        <item>Segurança</item>
+        <item>Outra</item>
+    </string-array>
+</resources>
