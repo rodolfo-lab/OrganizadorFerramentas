@@ -24,11 +24,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="@string/titulo" />
+            android:label="@string/titulo"
+            android:parentActivityName=".ListaFerramentasActivity" />
         <activity
             android:name=".SobreActivity"
             android:exported="false"
-            android:label="@string/titulo_sobre" />
+            android:label="@string/titulo_sobre"
+            android:parentActivityName=".ListaFerramentasActivity" />
     </application>
 
 </manifest>

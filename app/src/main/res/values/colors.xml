@@ -7,4 +7,8 @@
     <color name="divider">#FFCCCCCC</color>
     <color name="disponivel">#FF2E7D32</color>
     <color name="indisponivel">#FFC62828</color>
+
+    <color name="fundo_item_selecionado">#FFE3EEFA</color>
+    <color name="fundo_acao_contextual">#FFEAF2FB</color>
+    <color name="acao_contextual">#FF004A77</color>
 </resources>

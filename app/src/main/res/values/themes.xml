@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Base.Theme.OrganizadorFerramentas" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.OrganizadorFerramentas" parent="Theme.Material3.Light">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/primary_variant</item>
@@ -10,6 +10,8 @@
     <style name="Theme.OrganizadorFerramentas" parent="Base.Theme.OrganizadorFerramentas">
         <item name="actionBarStyle">@style/Widget.OrganizadorFerramentas.ActionBar</item>
         <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="actionModeStyle">@style/Widget.OrganizadorFerramentas.ActionMode</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_fechar_contextual</item>
     </style>
 
     <style name="Widget.OrganizadorFerramentas.ActionBar" parent="Widget.AppCompat.ActionBar.Solid">
@@ -20,6 +22,18 @@
     <style name="TextAppearance.OrganizadorFerramentas.ActionBar.Title"
         parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.OrganizadorFerramentas.ActionMode" parent="Widget.AppCompat.ActionMode">
+        <item name="background">@color/fundo_acao_contextual</item>
+        <item name="backgroundSplit">@color/fundo_acao_contextual</item>
+        <item name="titleTextStyle">@style/TextAppearance.OrganizadorFerramentas.ActionMode.Title</item>
+    </style>
+
+    <style name="TextAppearance.OrganizadorFerramentas.ActionMode.Title"
+        parent="TextAppearance.AppCompat.Widget.ActionMode.Title">
+        <item name="android:textColor">@color/acao_contextual</item>
         <item name="android:textStyle">bold</item>
     </style>
 

@@ -2,6 +2,7 @@
     <string name="app_name">OrganizadorFerramentas</string>
 
     <string name="titulo">Cadastro de Ferramenta</string>
+    <string name="titulo_edicao">Edição de Ferramenta</string>
 
     <string name="nome">Nome da ferramenta</string>
     <string name="nome_dica">Ex.: Furadeira de impacto</string>
@@ -49,9 +50,14 @@
 
     <string name="adicionar">Adicionar</string>
     <string name="sobre">Sobre</string>
-    <string name="lista_vazia">Nenhuma ferramenta cadastrada.\n\nToque em “Adicionar” para cadastrar a primeira ferramenta do acervo.</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="item_selecionado">Editar ferramenta</string>
+    <string name="lista_vazia">Nenhuma ferramenta cadastrada.\n\nUse a opção “Adicionar” do menu para cadastrar a primeira ferramenta do acervo.</string>
     <string name="ferramenta_adicionada">Ferramenta “%1$s” adicionada ao acervo.</string>
-    <string name="cadastro_cancelado">Cadastro cancelado.</string>
+    <string name="ferramenta_editada">Ferramenta “%1$s” atualizada.</string>
+    <string name="ferramenta_excluida">Ferramenta “%1$s” excluída do acervo.</string>
+    <string name="cadastro_cancelado">Operação cancelada.</string>
 
     <string name="titulo_sobre">Sobre o Aplicativo</string>
     <string name="sobre_logo_descricao">Logotipo da UTFPR</string>
@@ -61,11 +67,11 @@
 
     <string name="sobre_aluno">Rodolfo Ricardo</string>
     <string name="sobre_rotulo_curso">Curso:</string>
-    <string name="sobre_curso">CETEJ</string>
+    <string name="sobre_curso">Especialização em tecnologia Java</string>
     <string name="sobre_rotulo_email">E-mail:</string>
 
-    <string name="sobre_email">rodolfo.ricardo@alunos.utfpr.edu.br</string>
+    <string name="sobre_email">rodolforicardo@alunos.utfpr.edu.br</string>
     <string name="sobre_titulo_app">O que o aplicativo faz</string>
-    <string name="sobre_descricao">O Organizador de Ferramentas é um aplicativo para controle do acervo de ferramentas de uma oficina. Por meio dele é possível cadastrar uma ferramenta informando nome, código/nº de série, localização, categoria e estado de conservação, além de indicar se ela está disponível para empréstimo. As ferramentas cadastradas são apresentadas em uma lista, na qual um toque em um item exibe o resumo dos seus dados.</string>
-    <string name="sobre_versao">Versão 1.0 – Entrega 3</string>
+    <string name="sobre_descricao">O Organizador de Ferramentas é um aplicativo para controle do acervo de ferramentas de uma oficina. Por meio dele é possível cadastrar uma ferramenta informando nome, código/nº de série, localização, categoria e estado de conservação, além de indicar se ela está disponível para empréstimo. As ferramentas cadastradas são apresentadas em uma lista, na qual um toque em um item exibe o resumo dos seus dados. Manter um item pressionado abre o menu de ação contextual, com as opções de editar e excluir a ferramenta.</string>
+    <string name="sobre_versao">Versão 1.0 – Entrega 4</string>
 </resources>

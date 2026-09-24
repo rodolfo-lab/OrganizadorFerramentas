@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuAdicionar"
+        android:icon="@drawable/ic_adicionar"
+        android:title="@string/adicionar"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menuSobre"
+        android:title="@string/sobre"
+        app:showAsAction="never" />
+
+</menu>
