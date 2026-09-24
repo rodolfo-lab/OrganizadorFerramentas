@@ -2,12 +2,13 @@
 
     <string-array name="categorias_ferramentas">
         <item>@string/categoria_selecione</item>
-        <item>Manual</item>
-        <item>Elétrica</item>
-        <item>Medição</item>
-        <item>Corte</item>
-        <item>Jardinagem</item>
-        <item>Segurança</item>
-        <item>Outra</item>
+        <item>@string/categoria_manual</item>
+        <item>@string/categoria_eletrica</item>
+        <item>@string/categoria_medicao</item>
+        <item>@string/categoria_corte</item>
+        <item>@string/categoria_jardinagem</item>
+        <item>@string/categoria_seguranca</item>
+        <item>@string/categoria_outra</item>
     </string-array>
+
 </resources>

@@ -1,77 +1,99 @@
 <resources>
-    <string name="app_name">OrganizadorFerramentas</string>
+    <string name="app_name">Tool Organizer</string>
 
-    <string name="titulo">Cadastro de Ferramenta</string>
-    <string name="titulo_edicao">Edição de Ferramenta</string>
+    <string name="titulo">Tool Registration</string>
+    <string name="titulo_edicao">Tool Editing</string>
 
-    <string name="nome">Nome da ferramenta</string>
-    <string name="nome_dica">Ex.: Furadeira de impacto</string>
+    <string name="nome">Tool name</string>
+    <string name="nome_dica">E.g.: Impact drill</string>
 
-    <string name="codigo">Código / nº de série</string>
-    <string name="codigo_dica">Ex.: FER-0042</string>
+    <string name="codigo">Code / serial number</string>
+    <string name="codigo_dica">E.g.: FER-0042</string>
 
-    <string name="localizacao">Localização</string>
-    <string name="localizacao_dica">Ex.: Prateleira B3</string>
+    <string name="localizacao">Location</string>
+    <string name="localizacao_dica">E.g.: Shelf B3</string>
 
-    <string name="categoria">Categoria</string>
-    <string name="categoria_selecione">Selecione…</string>
+    <string name="categoria">Category</string>
+    <string name="categoria_selecione">Select…</string>
+    <string name="categoria_manual">Hand tool</string>
+    <string name="categoria_eletrica">Power tool</string>
+    <string name="categoria_medicao">Measuring</string>
+    <string name="categoria_corte">Cutting</string>
+    <string name="categoria_jardinagem">Gardening</string>
+    <string name="categoria_seguranca">Safety</string>
+    <string name="categoria_outra">Other</string>
 
-    <string name="estado">Estado de conservação</string>
-    <string name="estado_nova">Nova</string>
-    <string name="estado_usada_boa">Usada – em bom estado</string>
-    <string name="estado_usada_reparo">Usada – precisa de reparo</string>
-    <string name="estado_danificada">Danificada</string>
+    <string name="estado">Condition</string>
+    <string name="estado_nova">New</string>
+    <string name="estado_usada_boa">Used – good condition</string>
+    <string name="estado_usada_reparo">Used – needs repair</string>
+    <string name="estado_danificada">Damaged</string>
 
-    <string name="disponivel">Disponível para empréstimo</string>
+    <string name="disponivel">Available for lending</string>
 
-    <string name="limpar">Limpar</string>
-    <string name="salvar">Salvar</string>
+    <string name="limpar">Clear</string>
+    <string name="salvar">Save</string>
 
-    <string name="formulario_limpo">Formulário limpo.</string>
-    <string name="disponivel_sim">sim</string>
-    <string name="disponivel_nao">não</string>
+    <string name="formulario_limpo">Form cleared.</string>
+    <string name="disponivel_sim">yes</string>
+    <string name="disponivel_nao">no</string>
 
-    <string name="erro_nome">Informe o nome da ferramenta.</string>
-    <string name="erro_codigo">Informe o código da ferramenta.</string>
-    <string name="erro_localizacao">Informe a localização da ferramenta.</string>
-    <string name="erro_categoria">Selecione a categoria da ferramenta.</string>
-    <string name="erro_estado">Selecione o estado de conservação.</string>
+    <string name="erro_nome">Enter the tool name.</string>
+    <string name="erro_codigo">Enter the tool code.</string>
+    <string name="erro_localizacao">Enter the tool location.</string>
+    <string name="erro_categoria">Select the tool category.</string>
+    <string name="erro_estado">Select the tool condition.</string>
 
-    <string name="titulo_lista">Acervo de Ferramentas</string>
-    <string name="item_codigo_categoria">Código: %1$s • Categoria: %2$s</string>
-    <string name="item_localizacao">Localização: %1$s</string>
-    <string name="item_estado">Estado: %1$s</string>
-    <string name="item_disponivel">DISPONÍVEL</string>
-    <string name="item_indisponivel">EMPRESTADA</string>
+    <string name="titulo_lista">Tool Collection</string>
+    <string name="item_codigo_categoria">Code: %1$s • Category: %2$s</string>
+    <string name="item_localizacao">Location: %1$s</string>
+    <string name="item_estado">Condition: %1$s</string>
+    <string name="item_disponivel">AVAILABLE</string>
+    <string name="item_indisponivel">ON LOAN</string>
 
     <string name="item_clicado">%1$s – %2$s\n%3$s • %4$s • %5$s</string>
-    <string name="status_disponivel">disponível</string>
-    <string name="status_emprestada">emprestada</string>
+    <string name="status_disponivel">available</string>
+    <string name="status_emprestada">on loan</string>
 
-    <string name="adicionar">Adicionar</string>
-    <string name="sobre">Sobre</string>
-    <string name="editar">Editar</string>
-    <string name="excluir">Excluir</string>
-    <string name="item_selecionado">Editar ferramenta</string>
-    <string name="lista_vazia">Nenhuma ferramenta cadastrada.\n\nUse a opção “Adicionar” do menu para cadastrar a primeira ferramenta do acervo.</string>
-    <string name="ferramenta_adicionada">Ferramenta “%1$s” adicionada ao acervo.</string>
-    <string name="ferramenta_editada">Ferramenta “%1$s” atualizada.</string>
-    <string name="ferramenta_excluida">Ferramenta “%1$s” excluída do acervo.</string>
-    <string name="cadastro_cancelado">Operação cancelada.</string>
+    <string name="adicionar">Add</string>
+    <string name="sobre">About</string>
+    <string name="editar">Edit</string>
+    <string name="excluir">Delete</string>
+    <string name="item_selecionado">Edit tool</string>
+    <string name="lista_vazia">No tools registered.\n\nUse the “Add” option in the menu to register the first tool of the collection.</string>
+    <string name="ferramenta_adicionada">Tool “%1$s” added to the collection.</string>
+    <string name="ferramenta_editada">Tool “%1$s” updated.</string>
+    <string name="ferramenta_excluida">Tool “%1$s” removed from the collection.</string>
+    <string name="cadastro_cancelado">Operation cancelled.</string>
 
-    <string name="titulo_sobre">Sobre o Aplicativo</string>
-    <string name="sobre_logo_descricao">Logotipo da UTFPR</string>
-    <string name="sobre_universidade">Universidade Tecnológica Federal do Paraná</string>
-    <string name="sobre_autoria">Autoria</string>
-    <string name="sobre_rotulo_aluno">Aluno:</string>
+    <string name="configuracoes">Settings</string>
+    <string name="titulo_configuracoes">App Settings</string>
+    <string name="config_secao_lista">Tool list</string>
+    <string name="config_ordenacao">Sort the list by</string>
+    <string name="ordenacao_cadastro">Registration order</string>
+    <string name="ordenacao_nome">Name (A–Z)</string>
+    <string name="ordenacao_codigo">Code (A–Z)</string>
+    <string name="config_secao_cadastro">Registration form</string>
+    <string name="config_sugestoes">Suggest values when registering a new tool</string>
+    <string name="config_sugestoes_ajuda">When enabled, the fields below are filled in automatically on every new registration.</string>
+    <string name="config_localizacao_padrao">Default location</string>
+    <string name="config_categoria_padrao">Default category</string>
+    <string name="config_disponivel_padrao">Mark as available for lending</string>
+    <string name="configuracoes_salvas">Settings saved.</string>
+
+    <string name="titulo_sobre">About the App</string>
+    <string name="sobre_logo_descricao">UTFPR logo</string>
+    <string name="sobre_universidade">Federal University of Technology – Paraná</string>
+    <string name="sobre_autoria">Authorship</string>
+    <string name="sobre_rotulo_aluno">Student:</string>
 
     <string name="sobre_aluno">Rodolfo Ricardo</string>
-    <string name="sobre_rotulo_curso">Curso:</string>
-    <string name="sobre_curso">Especialização em tecnologia Java</string>
+    <string name="sobre_rotulo_curso">Course:</string>
+    <string name="sobre_curso">Java Technology Specialization</string>
     <string name="sobre_rotulo_email">E-mail:</string>
 
     <string name="sobre_email">rodolforicardo@alunos.utfpr.edu.br</string>
-    <string name="sobre_titulo_app">O que o aplicativo faz</string>
-    <string name="sobre_descricao">O Organizador de Ferramentas é um aplicativo para controle do acervo de ferramentas de uma oficina. Por meio dele é possível cadastrar uma ferramenta informando nome, código/nº de série, localização, categoria e estado de conservação, além de indicar se ela está disponível para empréstimo. As ferramentas cadastradas são apresentadas em uma lista, na qual um toque em um item exibe o resumo dos seus dados. Manter um item pressionado abre o menu de ação contextual, com as opções de editar e excluir a ferramenta.</string>
-    <string name="sobre_versao">Versão 1.0 – Entrega 4</string>
+    <string name="sobre_titulo_app">What the app does</string>
+    <string name="sobre_descricao">Tool Organizer is an app for managing the tool collection of a workshop. With it you can register a tool by entering its name, code/serial number, location, category and condition, as well as stating whether it is available for lending. The registered tools are shown in a list, where a tap on an item displays a summary of its data. Long pressing an item opens the contextual action menu, with the options to edit and delete the tool. The settings screen lets you choose how the list is sorted and which values are suggested on every new registration.</string>
+    <string name="sobre_versao">Version 1.0 – Delivery 5</string>
 </resources>

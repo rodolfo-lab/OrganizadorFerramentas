@@ -57,6 +57,8 @@ public class MainActivity extends BaseActivity {
         if (posicao != POSICAO_NOVA) {
             setTitle(R.string.titulo_edicao);
             preencherFormulario(getIntent());
+        } else if (Preferencias.isSugestoesAtivas(this)) {
+            aplicarSugestoes();
         }
     }
 
@@ -88,6 +90,17 @@ public class MainActivity extends BaseActivity {
         setResult(RESULT_CANCELED);
         finish();
         return true;
+    }
+
+    private void aplicarSugestoes() {
+        textLocalizacao.setText(Preferencias.getLocalizacaoPadrao(this));
+        disponivel.setChecked(Preferencias.isDisponivelPadrao(this));
+
+        int categoriaPadrao = Preferencias.getCategoriaPadrao(this);
+        if (categoria.getAdapter() != null
+                && categoriaPadrao < categoria.getAdapter().getCount()) {
+            categoria.setSelection(categoriaPadrao);
+        }
     }
 
     private void preencherFormulario(Intent dados) {

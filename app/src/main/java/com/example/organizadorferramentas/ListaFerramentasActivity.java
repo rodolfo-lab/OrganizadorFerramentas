@@ -13,7 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ListaFerramentasActivity extends BaseActivity {
 
@@ -25,6 +28,7 @@ public class ListaFerramentasActivity extends BaseActivity {
 
     private ActionMode menuContextual;
     private int posicaoSelecionada = ListView.INVALID_POSITION;
+    private long proximaSequencia = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,12 @@ public class ListaFerramentasActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        ordenarLista();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_lista, menu);
         return true;
@@ -87,12 +97,41 @@ public class ListaFerramentasActivity extends BaseActivity {
             return true;
         }
 
+        if (id == R.id.menuConfiguracoes) {
+            startActivity(new Intent(this, ConfiguracoesActivity.class));
+            return true;
+        }
+
         if (id == R.id.menuSobre) {
             startActivity(new Intent(this, SobreActivity.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void ordenarLista() {
+        final int ordenacao = Preferencias.getOrdenacao(this);
+
+        final Collator comparadorDeTexto = Collator.getInstance();
+        comparadorDeTexto.setStrength(Collator.PRIMARY);
+
+        Collections.sort(ferramentas, new Comparator<Ferramenta>() {
+            @Override
+            public int compare(Ferramenta uma, Ferramenta outra) {
+                if (ordenacao == Preferencias.ORDENACAO_NOME) {
+                    return comparadorDeTexto.compare(uma.getNome(), outra.getNome());
+                }
+
+                if (ordenacao == Preferencias.ORDENACAO_CODIGO) {
+                    return comparadorDeTexto.compare(uma.getCodigo(), outra.getCodigo());
+                }
+
+                return Long.compare(uma.getSequencia(), outra.getSequencia());
+            }
+        });
+
+        adapter.notifyDataSetChanged();
     }
 
     private void abrirMenuContextual(int posicao) {
@@ -228,7 +267,7 @@ public class ListaFerramentasActivity extends BaseActivity {
             ferramenta.setEstado(estado);
             ferramenta.setDisponivel(disponivel);
 
-            adapter.notifyDataSetChanged();
+            ordenarLista();
 
             Toast.makeText(this,
                     getString(R.string.ferramenta_editada, ferramenta.getNome()),
@@ -239,8 +278,10 @@ public class ListaFerramentasActivity extends BaseActivity {
         Ferramenta ferramenta = new Ferramenta(nome, codigo, categoria, localizacao,
                 estado, disponivel);
 
+        ferramenta.setSequencia(proximaSequencia++);
+
         ferramentas.add(ferramenta);
-        adapter.notifyDataSetChanged();
+        ordenarLista();
 
         Toast.makeText(this,
                 getString(R.string.ferramenta_adicionada, ferramenta.getNome()),

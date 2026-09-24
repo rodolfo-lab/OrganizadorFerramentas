@@ -8,6 +8,7 @@ public class Ferramenta {
     private String localizacao;
     private String estado;
     private boolean disponivel;
+    private long sequencia;
 
     public Ferramenta(String nome, String codigo, String categoria, String localizacao,
                       String estado, boolean disponivel) {
@@ -17,6 +18,14 @@ public class Ferramenta {
         this.localizacao = localizacao;
         this.estado = estado;
         this.disponivel = disponivel;
+    }
+
+    public long getSequencia() {
+        return sequencia;
+    }
+
+    public void setSequencia(long sequencia) {
+        this.sequencia = sequencia;
     }
 
     public String getNome() {

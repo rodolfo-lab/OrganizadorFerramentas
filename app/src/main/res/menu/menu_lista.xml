@@ -9,6 +9,11 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/menuConfiguracoes"
+        android:title="@string/configuracoes"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menuSobre"
         android:title="@string/sobre"
         app:showAsAction="never" />

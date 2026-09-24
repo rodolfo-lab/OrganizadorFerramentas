@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Organizador de Ferramentas</string>
+
+    <string name="titulo">Cadastro de Ferramenta</string>
+    <string name="titulo_edicao">Edição de Ferramenta</string>
+
+    <string name="nome">Nome da ferramenta</string>
+    <string name="nome_dica">Ex.: Furadeira de impacto</string>
+
+    <string name="codigo">Código / nº de série</string>
+    <string name="codigo_dica">Ex.: FER-0042</string>
+
+    <string name="localizacao">Localização</string>
+    <string name="localizacao_dica">Ex.: Prateleira B3</string>
+
+    <string name="categoria">Categoria</string>
+    <string name="categoria_selecione">Selecione…</string>
+    <string name="categoria_manual">Manual</string>
+    <string name="categoria_eletrica">Elétrica</string>
+    <string name="categoria_medicao">Medição</string>
+    <string name="categoria_corte">Corte</string>
+    <string name="categoria_jardinagem">Jardinagem</string>
+    <string name="categoria_seguranca">Segurança</string>
+    <string name="categoria_outra">Outra</string>
+
+    <string name="estado">Estado de conservação</string>
+    <string name="estado_nova">Nova</string>
+    <string name="estado_usada_boa">Usada – em bom estado</string>
+    <string name="estado_usada_reparo">Usada – precisa de reparo</string>
+    <string name="estado_danificada">Danificada</string>
+
+    <string name="disponivel">Disponível para empréstimo</string>
+
+    <string name="limpar">Limpar</string>
+    <string name="salvar">Salvar</string>
+
+    <string name="formulario_limpo">Formulário limpo.</string>
+    <string name="disponivel_sim">sim</string>
+    <string name="disponivel_nao">não</string>
+
+    <string name="erro_nome">Informe o nome da ferramenta.</string>
+    <string name="erro_codigo">Informe o código da ferramenta.</string>
+    <string name="erro_localizacao">Informe a localização da ferramenta.</string>
+    <string name="erro_categoria">Selecione a categoria da ferramenta.</string>
+    <string name="erro_estado">Selecione o estado de conservação.</string>
+
+    <string name="titulo_lista">Acervo de Ferramentas</string>
+    <string name="item_codigo_categoria">Código: %1$s • Categoria: %2$s</string>
+    <string name="item_localizacao">Localização: %1$s</string>
+    <string name="item_estado">Estado: %1$s</string>
+    <string name="item_disponivel">DISPONÍVEL</string>
+    <string name="item_indisponivel">EMPRESTADA</string>
+
+    <string name="item_clicado">%1$s – %2$s\n%3$s • %4$s • %5$s</string>
+    <string name="status_disponivel">disponível</string>
+    <string name="status_emprestada">emprestada</string>
+
+    <string name="adicionar">Adicionar</string>
+    <string name="sobre">Sobre</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="item_selecionado">Editar ferramenta</string>
+    <string name="lista_vazia">Nenhuma ferramenta cadastrada.\n\nUse a opção “Adicionar” do menu para cadastrar a primeira ferramenta do acervo.</string>
+    <string name="ferramenta_adicionada">Ferramenta “%1$s” adicionada ao acervo.</string>
+    <string name="ferramenta_editada">Ferramenta “%1$s” atualizada.</string>
+    <string name="ferramenta_excluida">Ferramenta “%1$s” excluída do acervo.</string>
+    <string name="cadastro_cancelado">Operação cancelada.</string>
+
+    <string name="configuracoes">Configurações</string>
+    <string name="titulo_configuracoes">Configurações do Aplicativo</string>
+    <string name="config_secao_lista">Lista de ferramentas</string>
+    <string name="config_ordenacao">Ordenar a lista por</string>
+    <string name="ordenacao_cadastro">Ordem de cadastro</string>
+    <string name="ordenacao_nome">Nome (A–Z)</string>
+    <string name="ordenacao_codigo">Código (A–Z)</string>
+    <string name="config_secao_cadastro">Formulário de cadastro</string>
+    <string name="config_sugestoes">Sugerir valores ao cadastrar uma nova ferramenta</string>
+    <string name="config_sugestoes_ajuda">Quando ativado, os campos abaixo são preenchidos automaticamente a cada novo cadastro.</string>
+    <string name="config_localizacao_padrao">Localização padrão</string>
+    <string name="config_categoria_padrao">Categoria padrão</string>
+    <string name="config_disponivel_padrao">Marcar como disponível para empréstimo</string>
+    <string name="configuracoes_salvas">Configurações salvas.</string>
+
+    <string name="titulo_sobre">Sobre o Aplicativo</string>
+    <string name="sobre_logo_descricao">Logotipo da UTFPR</string>
+    <string name="sobre_universidade">Universidade Tecnológica Federal do Paraná</string>
+    <string name="sobre_autoria">Autoria</string>
+    <string name="sobre_rotulo_aluno">Aluno:</string>
+
+    <string name="sobre_aluno">Rodolfo Ricardo</string>
+    <string name="sobre_rotulo_curso">Curso:</string>
+    <string name="sobre_curso">Especialização em tecnologia Java</string>
+    <string name="sobre_rotulo_email">E-mail:</string>
+
+    <string name="sobre_email">rodolforicardo@alunos.utfpr.edu.br</string>
+    <string name="sobre_titulo_app">O que o aplicativo faz</string>
+    <string name="sobre_descricao">O Organizador de Ferramentas é um aplicativo para controle do acervo de ferramentas de uma oficina. Por meio dele é possível cadastrar uma ferramenta informando nome, código/nº de série, localização, categoria e estado de conservação, além de indicar se ela está disponível para empréstimo. As ferramentas cadastradas são apresentadas em uma lista, na qual um toque em um item exibe o resumo dos seus dados. Manter um item pressionado abre o menu de ação contextual, com as opções de editar e excluir a ferramenta. Na tela de configurações é possível escolher a ordenação da lista e os valores sugeridos a cada novo cadastro.</string>
+    <string name="sobre_versao">Versão 1.0 – Entrega 5</string>
+</resources>

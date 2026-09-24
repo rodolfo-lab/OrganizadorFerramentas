@@ -27,6 +27,11 @@
             android:label="@string/titulo"
             android:parentActivityName=".ListaFerramentasActivity" />
         <activity
+            android:name=".ConfiguracoesActivity"
+            android:exported="false"
+            android:label="@string/titulo_configuracoes"
+            android:parentActivityName=".ListaFerramentasActivity" />
+        <activity
             android:name=".SobreActivity"
             android:exported="false"
             android:label="@string/titulo_sobre"
