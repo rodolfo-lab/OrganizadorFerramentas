@@ -35,7 +35,7 @@ public class FerramentaAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return ferramentas.get(position).getId();
     }
 
     @Override
@@ -54,10 +54,11 @@ public class FerramentaAdapter extends BaseAdapter {
 
         holder.nome.setText(ferramenta.getNome());
         holder.codigoCategoria.setText(context.getString(R.string.item_codigo_categoria,
-                ferramenta.getCodigo(), ferramenta.getCategoria()));
+                ferramenta.getCodigo(), ferramenta.getDescricaoCategoria(context)));
         holder.localizacao.setText(context.getString(R.string.item_localizacao,
                 ferramenta.getLocalizacao()));
-        holder.estado.setText(context.getString(R.string.item_estado, ferramenta.getEstado()));
+        holder.estado.setText(context.getString(R.string.item_estado,
+                ferramenta.getDescricaoEstado(context)));
 
         if (ferramenta.isDisponivel()) {
             holder.disponibilidade.setText(R.string.item_disponivel);

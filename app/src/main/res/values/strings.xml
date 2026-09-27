@@ -65,6 +65,11 @@
     <string name="ferramenta_editada">Tool “%1$s” updated.</string>
     <string name="ferramenta_excluida">Tool “%1$s” removed from the collection.</string>
     <string name="cadastro_cancelado">Operation cancelled.</string>
+    <string name="confirmar_exclusao_titulo">Delete tool</string>
+    <string name="confirmar_exclusao_mensagem">Do you really want to delete the tool “%1$s”? This action cannot be undone.</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
+    <string name="erro_ferramenta_nao_encontrada">Tool not found.</string>
 
     <string name="configuracoes">Settings</string>
     <string name="titulo_configuracoes">App Settings</string>

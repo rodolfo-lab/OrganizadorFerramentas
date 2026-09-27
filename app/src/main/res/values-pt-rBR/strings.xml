@@ -65,6 +65,11 @@
     <string name="ferramenta_editada">Ferramenta “%1$s” atualizada.</string>
     <string name="ferramenta_excluida">Ferramenta “%1$s” excluída do acervo.</string>
     <string name="cadastro_cancelado">Operação cancelada.</string>
+    <string name="confirmar_exclusao_titulo">Excluir ferramenta</string>
+    <string name="confirmar_exclusao_mensagem">Deseja realmente excluir a ferramenta “%1$s”? Esta ação não pode ser desfeita.</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="erro_ferramenta_nao_encontrada">Ferramenta não encontrada.</string>
 
     <string name="configuracoes">Configurações</string>
     <string name="titulo_configuracoes">Configurações do Aplicativo</string>

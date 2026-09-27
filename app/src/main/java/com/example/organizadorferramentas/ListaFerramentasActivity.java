@@ -1,5 +1,6 @@
 package com.example.organizadorferramentas;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 
 import java.text.Collator;
@@ -28,12 +30,15 @@ public class ListaFerramentasActivity extends BaseActivity {
 
     private ActionMode menuContextual;
     private int posicaoSelecionada = ListView.INVALID_POSITION;
-    private long proximaSequencia = 1;
+
+    private FerramentaDao ferramentaDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_ferramentas);
+
+        ferramentaDao = FerramentasDatabase.getInstance(this).getFerramentaDao();
 
         ferramentas = new ArrayList<>();
         adapter = new FerramentaAdapter(this, ferramentas);
@@ -59,7 +64,7 @@ public class ListaFerramentasActivity extends BaseActivity {
                 String mensagem = getString(R.string.item_clicado,
                         ferramenta.getCodigo(),
                         ferramenta.getNome(),
-                        ferramenta.getCategoria(),
+                        ferramenta.getDescricaoCategoria(ListaFerramentasActivity.this),
                         ferramenta.getLocalizacao(),
                         disponibilidade);
 
@@ -79,6 +84,12 @@ public class ListaFerramentasActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        carregarFerramentas();
+    }
+
+    private void carregarFerramentas() {
+        ferramentas.clear();
+        ferramentas.addAll(ferramentaDao.listarTodas());
         ordenarLista();
     }
 
@@ -127,7 +138,7 @@ public class ListaFerramentasActivity extends BaseActivity {
                     return comparadorDeTexto.compare(uma.getCodigo(), outra.getCodigo());
                 }
 
-                return Long.compare(uma.getSequencia(), outra.getSequencia());
+                return Long.compare(uma.getId(), outra.getId());
             }
         });
 
@@ -186,7 +197,7 @@ public class ListaFerramentasActivity extends BaseActivity {
             }
 
             if (id == R.id.menuExcluir) {
-                excluirFerramenta(posicaoSelecionada);
+                confirmarExclusao(ferramentas.get(posicaoSelecionada));
                 mode.finish();
                 return true;
             }
@@ -210,22 +221,31 @@ public class ListaFerramentasActivity extends BaseActivity {
         Intent intent = new Intent(this, MainActivity.class);
 
         if (posicao != ListView.INVALID_POSITION) {
-            Ferramenta ferramenta = ferramentas.get(posicao);
-
-            intent.putExtra(MainActivity.EXTRA_POSICAO, posicao);
-            intent.putExtra(MainActivity.EXTRA_NOME, ferramenta.getNome());
-            intent.putExtra(MainActivity.EXTRA_CODIGO, ferramenta.getCodigo());
-            intent.putExtra(MainActivity.EXTRA_CATEGORIA, ferramenta.getCategoria());
-            intent.putExtra(MainActivity.EXTRA_LOCALIZACAO, ferramenta.getLocalizacao());
-            intent.putExtra(MainActivity.EXTRA_ESTADO, ferramenta.getEstado());
-            intent.putExtra(MainActivity.EXTRA_DISPONIVEL, ferramenta.isDisponivel());
+            intent.putExtra(MainActivity.EXTRA_ID, ferramentas.get(posicao).getId());
         }
 
         startActivityForResult(intent, REQUEST_CADASTRO);
     }
 
-    private void excluirFerramenta(int posicao) {
-        Ferramenta ferramenta = ferramentas.remove(posicao);
+    private void confirmarExclusao(final Ferramenta ferramenta) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.confirmar_exclusao_titulo)
+                .setIcon(R.drawable.ic_excluir)
+                .setMessage(getString(R.string.confirmar_exclusao_mensagem, ferramenta.getNome()))
+                .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogo, int botao) {
+                        excluirFerramenta(ferramenta);
+                    }
+                })
+                .setNegativeButton(R.string.nao, null)
+                .show();
+    }
+
+    private void excluirFerramenta(Ferramenta ferramenta) {
+        ferramentaDao.excluir(ferramenta);
+
+        ferramentas.remove(ferramenta);
         adapter.notifyDataSetChanged();
 
         Toast.makeText(this,
@@ -249,42 +269,11 @@ public class ListaFerramentasActivity extends BaseActivity {
         }
 
         String nome = data.getStringExtra(MainActivity.EXTRA_NOME);
-        String codigo = data.getStringExtra(MainActivity.EXTRA_CODIGO);
-        String categoria = data.getStringExtra(MainActivity.EXTRA_CATEGORIA);
-        String localizacao = data.getStringExtra(MainActivity.EXTRA_LOCALIZACAO);
-        String estado = data.getStringExtra(MainActivity.EXTRA_ESTADO);
-        boolean disponivel = data.getBooleanExtra(MainActivity.EXTRA_DISPONIVEL, false);
-
-        int posicao = data.getIntExtra(MainActivity.EXTRA_POSICAO, ListView.INVALID_POSITION);
-
-        if (posicao >= 0 && posicao < ferramentas.size()) {
-            Ferramenta ferramenta = ferramentas.get(posicao);
-
-            ferramenta.setNome(nome);
-            ferramenta.setCodigo(codigo);
-            ferramenta.setCategoria(categoria);
-            ferramenta.setLocalizacao(localizacao);
-            ferramenta.setEstado(estado);
-            ferramenta.setDisponivel(disponivel);
-
-            ordenarLista();
-
-            Toast.makeText(this,
-                    getString(R.string.ferramenta_editada, ferramenta.getNome()),
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        Ferramenta ferramenta = new Ferramenta(nome, codigo, categoria, localizacao,
-                estado, disponivel);
-
-        ferramenta.setSequencia(proximaSequencia++);
-
-        ferramentas.add(ferramenta);
-        ordenarLista();
+        boolean edicao = data.getBooleanExtra(MainActivity.EXTRA_EDICAO, false);
 
         Toast.makeText(this,
-                getString(R.string.ferramenta_adicionada, ferramenta.getNome()),
+                getString(edicao ? R.string.ferramenta_editada : R.string.ferramenta_adicionada,
+                        nome),
                 Toast.LENGTH_SHORT).show();
     }
 }

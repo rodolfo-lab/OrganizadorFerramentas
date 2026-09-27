@@ -11,4 +11,11 @@
         <item>@string/categoria_outra</item>
     </string-array>
 
+    <string-array name="estados_ferramentas">
+        <item>@string/estado_nova</item>
+        <item>@string/estado_usada_boa</item>
+        <item>@string/estado_usada_reparo</item>
+        <item>@string/estado_danificada</item>
+    </string-array>
+
 </resources>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -16,15 +17,11 @@ import androidx.appcompat.app.ActionBar;
 
 public class MainActivity extends BaseActivity {
 
+    public static final String EXTRA_ID = "com.example.organizadorferramentas.ID";
     public static final String EXTRA_NOME = "com.example.organizadorferramentas.NOME";
-    public static final String EXTRA_CODIGO = "com.example.organizadorferramentas.CODIGO";
-    public static final String EXTRA_CATEGORIA = "com.example.organizadorferramentas.CATEGORIA";
-    public static final String EXTRA_LOCALIZACAO = "com.example.organizadorferramentas.LOCALIZACAO";
-    public static final String EXTRA_ESTADO = "com.example.organizadorferramentas.ESTADO";
-    public static final String EXTRA_DISPONIVEL = "com.example.organizadorferramentas.DISPONIVEL";
-    public static final String EXTRA_POSICAO = "com.example.organizadorferramentas.POSICAO";
+    public static final String EXTRA_EDICAO = "com.example.organizadorferramentas.EDICAO";
 
-    private static final int POSICAO_NOVA = -1;
+    private static final long ID_NOVO = -1;
 
     private EditText textNome;
     private EditText textCodigo;
@@ -33,7 +30,8 @@ public class MainActivity extends BaseActivity {
     private RadioGroup estado;
     private CheckBox disponivel;
 
-    private int posicao = POSICAO_NOVA;
+    private FerramentaDao ferramentaDao;
+    private Ferramenta ferramentaEmEdicao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +50,27 @@ public class MainActivity extends BaseActivity {
         estado = findViewById(R.id.estado);
         disponivel = findViewById(R.id.disponivel);
 
-        posicao = getIntent().getIntExtra(EXTRA_POSICAO, POSICAO_NOVA);
+        ferramentaDao = FerramentasDatabase.getInstance(this).getFerramentaDao();
 
-        if (posicao != POSICAO_NOVA) {
+        long id = getIntent().getLongExtra(EXTRA_ID, ID_NOVO);
+
+        if (id != ID_NOVO) {
+            ferramentaEmEdicao = ferramentaDao.buscarPorId(id);
+
+            if (ferramentaEmEdicao == null) {
+                Toast.makeText(this, R.string.erro_ferramenta_nao_encontrada,
+                        Toast.LENGTH_SHORT).show();
+                setResult(RESULT_CANCELED);
+                finish();
+                return;
+            }
+
             setTitle(R.string.titulo_edicao);
-            preencherFormulario(getIntent());
-        } else if (Preferencias.isSugestoesAtivas(this)) {
+
+            if (savedInstanceState == null) {
+                preencherFormulario(ferramentaEmEdicao);
+            }
+        } else if (savedInstanceState == null && Preferencias.isSugestoesAtivas(this)) {
             aplicarSugestoes();
         }
     }
@@ -95,49 +108,30 @@ public class MainActivity extends BaseActivity {
     private void aplicarSugestoes() {
         textLocalizacao.setText(Preferencias.getLocalizacaoPadrao(this));
         disponivel.setChecked(Preferencias.isDisponivelPadrao(this));
+        selecionarCategoria(Preferencias.getCategoriaPadrao(this));
+    }
 
-        int categoriaPadrao = Preferencias.getCategoriaPadrao(this);
+    private void preencherFormulario(Ferramenta ferramenta) {
+        textNome.setText(ferramenta.getNome());
+        textCodigo.setText(ferramenta.getCodigo());
+        textLocalizacao.setText(ferramenta.getLocalizacao());
+        disponivel.setChecked(ferramenta.isDisponivel());
+
+        selecionarCategoria(ferramenta.getCategoria());
+        selecionarEstado(ferramenta.getEstado());
+    }
+
+    private void selecionarCategoria(int posicao) {
         if (categoria.getAdapter() != null
-                && categoriaPadrao < categoria.getAdapter().getCount()) {
-            categoria.setSelection(categoriaPadrao);
+                && posicao >= 0
+                && posicao < categoria.getAdapter().getCount()) {
+            categoria.setSelection(posicao);
         }
     }
 
-    private void preencherFormulario(Intent dados) {
-        textNome.setText(dados.getStringExtra(EXTRA_NOME));
-        textCodigo.setText(dados.getStringExtra(EXTRA_CODIGO));
-        textLocalizacao.setText(dados.getStringExtra(EXTRA_LOCALIZACAO));
-        disponivel.setChecked(dados.getBooleanExtra(EXTRA_DISPONIVEL, false));
-
-        selecionarCategoria(dados.getStringExtra(EXTRA_CATEGORIA));
-        selecionarEstado(dados.getStringExtra(EXTRA_ESTADO));
-    }
-
-    private void selecionarCategoria(String categoriaSalva) {
-        if (categoriaSalva == null || categoria.getAdapter() == null) {
-            return;
-        }
-
-        for (int i = 0; i < categoria.getAdapter().getCount(); i++) {
-            if (categoriaSalva.equals(categoria.getAdapter().getItem(i).toString())) {
-                categoria.setSelection(i);
-                return;
-            }
-        }
-    }
-
-    private void selecionarEstado(String estadoSalvo) {
-        if (estadoSalvo == null) {
-            return;
-        }
-
-        for (int i = 0; i < estado.getChildCount(); i++) {
-            RadioButton opcao = (RadioButton) estado.getChildAt(i);
-
-            if (estadoSalvo.equals(opcao.getText().toString())) {
-                opcao.setChecked(true);
-                return;
-            }
+    private void selecionarEstado(int posicao) {
+        if (posicao >= 0 && posicao < estado.getChildCount()) {
+            ((RadioButton) estado.getChildAt(posicao)).setChecked(true);
         }
     }
 
@@ -181,7 +175,8 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
-        if (categoria.getSelectedItemPosition() <= 0) {
+        int categoriaSelecionada = categoria.getSelectedItemPosition();
+        if (categoriaSelecionada <= 0) {
             Toast.makeText(this, R.string.erro_categoria, Toast.LENGTH_SHORT).show();
             categoria.requestFocus();
             return;
@@ -194,19 +189,31 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
-        RadioButton rbSelecionado = findViewById(radioSelecionadoId);
-        String estadoSelecionado = rbSelecionado.getText().toString();
-        String categoriaSelecionada = categoria.getSelectedItem().toString();
+        View rbSelecionado = findViewById(radioSelecionadoId);
+        int estadoSelecionado = estado.indexOfChild(rbSelecionado);
         boolean estaDisponivel = disponivel.isChecked();
+
+        boolean edicao = ferramentaEmEdicao != null;
+
+        if (edicao) {
+            ferramentaEmEdicao.setNome(nome);
+            ferramentaEmEdicao.setCodigo(codigo);
+            ferramentaEmEdicao.setCategoria(categoriaSelecionada);
+            ferramentaEmEdicao.setLocalizacao(localizacao);
+            ferramentaEmEdicao.setEstado(estadoSelecionado);
+            ferramentaEmEdicao.setDisponivel(estaDisponivel);
+
+            ferramentaDao.alterar(ferramentaEmEdicao);
+        } else {
+            Ferramenta nova = new Ferramenta(nome, codigo, categoriaSelecionada, localizacao,
+                    estadoSelecionado, estaDisponivel);
+
+            ferramentaDao.inserir(nova);
+        }
 
         Intent resultado = new Intent();
         resultado.putExtra(EXTRA_NOME, nome);
-        resultado.putExtra(EXTRA_CODIGO, codigo);
-        resultado.putExtra(EXTRA_CATEGORIA, categoriaSelecionada);
-        resultado.putExtra(EXTRA_LOCALIZACAO, localizacao);
-        resultado.putExtra(EXTRA_ESTADO, estadoSelecionado);
-        resultado.putExtra(EXTRA_DISPONIVEL, estaDisponivel);
-        resultado.putExtra(EXTRA_POSICAO, posicao);
+        resultado.putExtra(EXTRA_EDICAO, edicao);
 
         setResult(RESULT_OK, resultado);
         finish();
