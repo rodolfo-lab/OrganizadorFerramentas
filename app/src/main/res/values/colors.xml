@@ -11,4 +11,6 @@
     <color name="fundo_item_selecionado">#FFE3EEFA</color>
     <color name="fundo_acao_contextual">#FFEAF2FB</color>
     <color name="acao_contextual">#FF004A77</color>
+
+    <color name="ic_launcher_background">#FFFFFFFF</color>
 </resources>
